@@ -5,27 +5,10 @@ import Garage from './scenes/Garage';
 import Victory from './scenes/Victory';
 import 'styles/game.css';
 
-const Game = ({ answerValue, levelItems  }) => {
-    const [lvl, setLvl] = React.useState(1);
+const Game = ({ foundLevelItems, lvl, victory }) => {
     const [dark, setDark] = React.useState(false);
-    const [victory, setVictory] = React.useState(false);
-
-    const [hiddenLevelItems, setHiddenLevelItems] = React.useState(levelItems);
-    const [foundLevelItems, setFoundLevelItems] = React.useState([]);
 
     const changeBrightness = () => setDark(!dark);
-
-    const addFoundLevelItems = (item) => {
-        if (!foundLevelItems.includes(item) && hiddenLevelItems.includes(item)) {
-            setFoundLevelItems([...foundLevelItems, item]);
-            console.log('found');
-        }
-        else console.log('error');
-    }
-
-    React.useEffect(() => {
-        addFoundLevelItems(answerValue);
-    });
 
     return (
         <div className='Game'>
@@ -42,14 +25,14 @@ const Game = ({ answerValue, levelItems  }) => {
             {foundLevelItems.includes("Clash of Clans")&&dark===true ? <span className='Game-Clash_of_Clans'>.</span> : ''}
             {foundLevelItems.includes("Pokemon")&&dark===true ? <span className='Game-Pokemon'>.</span> : ''}
             {foundLevelItems.includes("Fairy Tail")&&dark===true ? <span className='Game-Fairy_Tail'>.</span> : ''}
-            {foundLevelItems.includes("Sword Art Online")&&dark===true ? <span className='Game-Sword_Art_Online'>.</span> : ''}
+            {foundLevelItems.includes("SAO")&&dark===true ? <span className='Game-Sword_Art_Online'>.</span> : ''}
             {foundLevelItems.includes("Mario Kart")&&dark===true ? <span className='Game-Mario_Kart'>.</span> : ''}
             {foundLevelItems.includes("Black Clover")&&dark===true ? <span className='Game-Black_Clover'>.</span> : ''}
             {foundLevelItems.includes("Naruto")&&dark===true ? <span className='Game-Naruto'>.</span> : ''}
 
             {foundLevelItems.includes("Iron Man")&&dark===true ? <span className='Game-Iron_Man'>.</span> : ''}
-            {foundLevelItems.includes("Attack On Titan")&&dark===true ? <span className='Game-Attack_On_Titan'>.</span> : ''}
-            {foundLevelItems.includes("Seigneur des anneaux")&&dark===true ? <span className='Game-Seigneur_des_anneaux'>.</span> : ''}
+            {foundLevelItems.includes("Attack on Titan")&&dark===true ? <span className='Game-Attack_On_Titan'>.</span> : ''}
+            {foundLevelItems.includes("The Lord of the Rings")&&dark===true ? <span className='Game-Seigneur_des_anneaux'>.</span> : ''}
             {foundLevelItems.includes("The Legend of Zelda")&&dark===true ? <span className='Game-The_Legend_of_Zelda'>.</span> : ''}
             {foundLevelItems.includes("Chainsaw Man")&&dark===true ? <span className='Game-Chainsaw_Man'>.</span> : ''}
             {foundLevelItems.includes("Game of Throne")&&dark===true ? <span className='Game-Game_of_Throne'>.</span> : ''}
