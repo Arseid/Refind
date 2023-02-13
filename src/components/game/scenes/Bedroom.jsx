@@ -1,9 +1,16 @@
 import React from 'react'
 
-const Bedroom = () => {
+const Bedroom = ({ darkened = false }) => {
     return (
         <div style={{width: 'fit-content', height: 'fit-content'}}>
-            <img style={{width: "100rem", height: "50rem"}} src={require('ressources/bedroom.jpg')} alt=''/>
+            {darkened === false
+                ?
+                <img style={{width: "100rem", height: "50rem"}}
+                     src={require('ressources/bedroom.jpg')} alt=''/>
+                :
+                <img style={{width: "100rem", height: "50rem"}}
+                     src={require('ressources/bedroom_darkened.jpg')} alt=''/>
+            }
         </div>
     )
 }
