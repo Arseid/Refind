@@ -15,8 +15,10 @@ function App() {
     function onValidateAnswer(e) {
         setAnswerValue(e.target.value);
         if (stage>3) {
-            alert('Bien joue, le jeu est termine');
-            if (e.target.value===password) setVictory(true);
+            if (e.target.value===password) {
+                alert('Bien joue, le jeu est termine');
+                setVictory(true);
+            }
         }
         else {
             if (!foundLevelItems.includes(e.target.value) && levelItems.includes(e.target.value)) {
