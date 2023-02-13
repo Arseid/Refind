@@ -1,16 +1,17 @@
-import React from 'react'
+import React from 'react';
 import Bedroom from './scenes/Bedroom';
 import Street from './scenes/Steet';
 import Garage from './scenes/Garage';
 import Victory from './scenes/Victory';
 import 'styles/game.css';
 
-const Game = () => {
+const Game = ({ answerValue }) => {
     const [lvl, setLvl] = React.useState(1);
     const [dark, setDark] = React.useState(false);
     const [victory, setVictory] = React.useState(false);
 
     const firstLevelItems = ["One Piece", "Star Wars", "Thor"];
+
 
     const [hiddenLevelItems, setHiddenLevelItems] = React.useState(firstLevelItems);
     const [foundLevelItems, setFoundLevelItems] = React.useState([]);
@@ -68,7 +69,7 @@ const Game = () => {
             {foundLevelItems.includes("E.T., l'extra-terrestre")&&dark===true ? <span className='Game-ET'>.</span> : ''}
 
         </div>
-    )
-}
+    );
+};
 
-export default Game
+export default Game;
