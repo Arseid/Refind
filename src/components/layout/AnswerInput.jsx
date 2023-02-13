@@ -3,13 +3,17 @@ import React from 'react';
 import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
 import { Stack } from '@mui/system';
 
-const AnswerInput = ({ onValidateAnswer }) => {
+const AnswerInput = ({ answerValue, onValidateAnswer }) => {
     return (
         <Stack direction="row" sx={{ width: '100%', pb: '1rem' }}>
             <InputBase
+                id="answerInput"
+                onInput={(e) => {
+                    onValidateAnswer(e);
+                }}
                 onKeyPress={(e) => {
                     if (e.key === 'Enter') {
-                        onValidateAnswer(e.target.value);
+                        onValidateAnswer(e, true);
                     }
                 }}
                 placeholder="Avez-vous trouvé quelque chose...?"

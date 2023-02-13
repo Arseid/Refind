@@ -1,5 +1,5 @@
 import { Stack } from '@mui/system';
-import React, { Children } from 'react';
+import React from 'react';
 import AnswerInput from './AnswerInput';
 import Hint from './Hint';
 import Next from './Next';
@@ -7,7 +7,7 @@ import logo from 'ressources/refind-logo.png';
 import { Box } from '@mui/material';
 import Progress from './Progress';
 
-const Layout = ({ onValidateAnswer, children }) => {
+const Layout = ({ children, answerValue, onValidateAnswer, found, toFind }) => {
     return (
         <Stack
             spacing={2}
@@ -36,7 +36,7 @@ const Layout = ({ onValidateAnswer, children }) => {
                     alt="logo-pokedex"
                     width="20rem"
                 />
-                <Progress />
+                <Progress found={found} toFind={toFind} />
             </Stack>
 
             <Stack
@@ -61,7 +61,10 @@ const Layout = ({ onValidateAnswer, children }) => {
                     }}
                 >
                     <div style={{ width: '100%', marginTop: '1rem' }}>
-                        <AnswerInput onValidateAnswer={onValidateAnswer} />
+                        <AnswerInput
+                            answerValue={answerValue}
+                            onValidateAnswer={onValidateAnswer}
+                        />
                     </div>
                 </Stack>
                 <Next />

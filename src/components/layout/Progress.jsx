@@ -1,13 +1,11 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import CircularProgress from '@mui/material/CircularProgress';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-function CircularProgressWithLabel(props) {
+export default function Progress({ found = 1, toFind = 10 }) {
     return (
         <Box sx={{ position: 'relative', display: 'inline-flex' }}>
-            <CircularProgress variant="determinate" size={80} {...props} />
+            <CircularProgress variant="determinate" size={80} value={(found / toFind) * 100} />
             <Box
                 sx={{
                     top: 0,
@@ -20,27 +18,8 @@ function CircularProgressWithLabel(props) {
                     justifyContent: 'center',
                 }}
             >
-                {`${Math.round(props.value)}%`}
+                {`${found}/${toFind}`}
             </Box>
         </Box>
     );
-}
-
-CircularProgressWithLabel.propTypes = {
-    value: PropTypes.number.isRequired,
-};
-
-export default function Progress() {
-    const [progress, setProgress] = React.useState(10);
-
-    React.useEffect(() => {
-        const timer = setInterval(() => {
-            setProgress((prevProgress) => (prevProgress >= 100 ? 0 : prevProgress + 10));
-        }, 800);
-        return () => {
-            clearInterval(timer);
-        };
-    }, []);
-
-    return <CircularProgressWithLabel value={60} />;
 }
