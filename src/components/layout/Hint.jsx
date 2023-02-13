@@ -52,14 +52,22 @@ export default function Hint() {
     const handleClose = () => setOpen(false);
 
     return (
+<<<<<<< HEAD
         <>
+=======
+        <div>
+>>>>>>> a3c72b2 (hint + layout fonctionnel)
             <Button
                 type="button"
                 onClick={handleOpen}
                 color="primary"
                 variant="contained"
                 sx={{
+<<<<<<< HEAD
                     borderRadius: '0rem 3rem 0rem 0rem',
+=======
+                    borderRadius: '0rem 0rem 3rem 0rem',
+>>>>>>> a3c72b2 (hint + layout fonctionnel)
                     minWidth: '8rem',
                     minHeight: '4rem',
                     justifyContent: 'left',
@@ -80,6 +88,10 @@ export default function Hint() {
                     <p id="unstyled-modal-description">Aliquid amet deserunt earum!</p>
                 </Box>
             </Modal>
+<<<<<<< HEAD
         </>
+=======
+        </div>
+>>>>>>> a3c72b2 (hint + layout fonctionnel)
     );
 }
