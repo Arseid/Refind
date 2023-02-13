@@ -11,8 +11,9 @@ function App() {
     }
     return (
         <div className="App">
-            <Layout onValidateAnswer={onValidateAnswer} />
             <Game/>
+            <Layout onValidateAnswer={onValidateAnswer} />
+
         </div>
     );
 }
