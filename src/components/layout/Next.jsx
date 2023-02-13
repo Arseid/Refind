@@ -8,7 +8,7 @@ const Next = () => {
             color="secondary"
             variant="contained"
             sx={{
-                borderRadius: '0rem 0rem 0rem 3rem',
+                borderRadius: '3rem 0rem 0rem 0rem',
                 minWidth: '8rem',
                 minHeight: '4rem',
                 justifyContent: 'right',

@@ -6,11 +6,11 @@ function App() {
 
     function onValidateAnswer(value) {
         setAnswerValue(value);
+        console.log(answerValue);
     }
     return (
         <div className="App">
             <Layout onValidateAnswer={onValidateAnswer} />
-            {answerValue}
         </div>
     );
 }
