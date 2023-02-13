@@ -12,7 +12,9 @@ function App() {
     }
     return (
         <div className="App">
-            <Layout onValidateAnswer={onValidateAnswer}></Layout>
+            <Layout onValidateAnswer={onValidateAnswer}>
+                <Game />
+            </Layout>
         </div>
     );
 }
