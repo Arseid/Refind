@@ -33,7 +33,8 @@ const Game = () => {
                 {lvl===3 ? <Street darkened={dark}/> : ''}
                 {lvl===4 ? 'GG T TRO FOR' : ''}
             </div>
-
+            {lvl===4 ? <button className='Game-Submit' onClick={() => {setLvl(1)}}>Restart Game</button> :
+                <button className='Game-Submit' onClick={() => {setLvl(lvl+1)}}>Lvl up</button>}
         </div>
     )
 }
