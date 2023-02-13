@@ -5,14 +5,12 @@ import Garage from './scenes/Garage';
 import Victory from './scenes/Victory';
 import 'styles/game.css';
 
-const Game = ({ answerValue }) => {
+const Game = ({ answerValue, levelItems  }) => {
     const [lvl, setLvl] = React.useState(1);
     const [dark, setDark] = React.useState(false);
     const [victory, setVictory] = React.useState(false);
 
-    const firstLevelItems = ["One Piece", "Star Wars", "Thor"];
-
-    const [hiddenLevelItems, setHiddenLevelItems] = React.useState(firstLevelItems);
+    const [hiddenLevelItems, setHiddenLevelItems] = React.useState(levelItems);
     const [foundLevelItems, setFoundLevelItems] = React.useState([]);
 
     const changeBrightness = () => setDark(!dark);
@@ -24,6 +22,10 @@ const Game = ({ answerValue }) => {
         }
         else console.log('error');
     }
+
+    React.useEffect(() => {
+        addFoundLevelItems(answerValue);
+    });
 
     return (
         <div className='Game'>

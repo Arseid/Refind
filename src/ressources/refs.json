@@ -1,19 +1,32 @@
 {
     "bedroom": {
         "One Piece": "Je deviendrai le roi des pirates !",
-        "Star Wars": "La guerre de l'espace.",
+        "Star Wars": "La guerre des étoiles.",
         "Thor": "Frère de Loki.",
         "Clash of Clans": "Or, Élixir et Barbares.",
         "Pokemon": "Monstres de poche",
-        "Fairy Tail": "L'anime qui incarne Natsu"
+        "Fairy Tail":"L'anime qui incarne Natsu",
+        "SAO" : "Anime jeu vidéo virtuel",
+        "Mario Kart" : "Course de voiture Nitendo",
+        "Black Clover" : "Un enfant sans pouvoir magique rêve de devenir magicien",
+        "Naruto" : "L'enfant qui avait un renard dans le ventre"
     },
 
     "garage": {
-        "Minecraft": "Creeper ? Aw man..."
+        "Iron man" : "J'ai une armure de très haute technologie",
+        "Attaque des titans" : "Bataillon d'exploration",
+        "Harry Potter" : "J'ai une cicatrice sur le front",
+        "Chainsowman" : "Démon tronçonneuse",
+        "Game of Thrones" : "Le trône de fer",
+        "Assassin's Creed" : "",
+        "Minecraft": "Creeper ? Aw man...",
+        "Batman" : "Chauve-souris",
+        "Death Note" : "Démon"
+
     },
 
     "street": {
-        "Genshin Impact": "RPG Gacha Openworld de Mihoyo",
-        "Mario": "Le plombier rouge"
+        "Genshin Impact": "Le jeu RPG Gacha Openworld du moment",
+        "Mario": "Le jeu qui a fait naître la mascotte de Nintendo"
     }
 }
