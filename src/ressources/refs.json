@@ -1,5 +1,19 @@
 {
-  "bedroom": ["one piece", "snk", "black clover"],
-  "garage": ["valorant", "genshin", "elden ring"],
-  "steet": ["avatar", "star wars", "iron man"]
+    "bedroom": {
+        "One Piece": "Je deviendrai le roi des pirates !",
+        "Star Wars": "La guerre de l'espace.",
+        "Thor": "Frère de Loki.",
+        "Clash of Clans": "Or, Élixir et Barbares.",
+        "Pokemon": "Monstres de poche",
+        "Fairy Tail": "L'anime qui incarne Natsu"
+    },
+
+    "garage": {
+        "Minecraft": "Creeper ? Aw man..."
+    },
+
+    "street": {
+        "Genshin Impact": "Le jeu RPG Gacha Openworld du moment",
+        "Mario": "Le jeu qui a fait naître la mascotte de Nintendo"
+    }
 }

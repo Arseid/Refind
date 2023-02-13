@@ -16,7 +16,7 @@ const AnswerInput = ({ onValidateAnswer }) => {
                 style={{
                     backgroundColor: 'white',
                     borderRadius: '2rem 0rem 0rem 2rem',
-                    padding: '0rem 2rem 0rem',
+                    padding: '0rem 1rem 0rem',
                     borderStyle: 'none',
                     flexGrow: 1,
                 }}

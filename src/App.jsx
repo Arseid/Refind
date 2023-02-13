@@ -4,6 +4,7 @@ import Game from './components/game/Game';
 
 function App() {
     const [answerValue, setAnswerValue] = useState('');
+    // const [scene, setScene] = useState('bedroom');
 
     function onValidateAnswer(value) {
         setAnswerValue(value);
@@ -11,9 +12,7 @@ function App() {
     }
     return (
         <div className="App">
-            <Game/>
-            <Layout onValidateAnswer={onValidateAnswer} />
-
+            <Layout onValidateAnswer={onValidateAnswer}></Layout>
         </div>
     );
 }
