@@ -10,13 +10,20 @@ function App() {
     const [victory, setVictory] = React.useState(false);
     const levelItems = [];
     const [foundLevelItems, setFoundLevelItems] = React.useState([]);
+    const password = '203';
 
     function onValidateAnswer(e) {
         setAnswerValue(e.target.value);
-        if (!foundLevelItems.includes(e.target.value) && levelItems.includes(e.target.value)) {
-            setFoundLevelItems([...foundLevelItems, e.target.value]);
-            e.target.value=null;
-            if (found<=levelItems.length)setFound(found+1);
+        if (stage>3) {
+            alert('Bien joue, le jeu est termine');
+            if (e.target.value===password) setVictory(true);
+        }
+        else {
+            if (!foundLevelItems.includes(e.target.value) && levelItems.includes(e.target.value)) {
+                setFoundLevelItems([...foundLevelItems, e.target.value]);
+                e.target.value=null;
+                if (found<=levelItems.length)setFound(found+1);
+            }
         }
     }
     //console.log(answerValue);
@@ -40,6 +47,21 @@ function App() {
         //console.log(levelItems);
     }
     getData();
+
+    React.useEffect(() => {
+        if (found===levelItems.length){
+            if (stage>3) {
+                setFoundLevelItems([]);
+                setFound(0);
+            }
+            else {
+                alert('Bravo veuillez conserver ce chiffre: 2, place au niveau suivant');
+                setStage(stage+1);
+                setFoundLevelItems([]);
+                setFound(0);
+            }
+        }
+    }, [found, levelItems.length, stage]);
 
     return (
         <div className="App">
