@@ -36,6 +36,9 @@ const Layout = ({ children, answerValue, onValidateAnswer, found, toFind, foundL
                     alt="logo-pokedex"
                     width="20rem"
                 />
+                <p>
+                    Trouvez les références cachées et devinez de quelles oeuvres elles proviennent !
+                </p>
                 <Progress found={found} toFind={toFind} />
             </Stack>
 
@@ -50,7 +53,7 @@ const Layout = ({ children, answerValue, onValidateAnswer, found, toFind, foundL
                 {children}
             </Stack>
 
-            <Stack spacing={2} direction="row" alignItems={'top'}>
+            <Stack spacing={2} direction="row" alignItems={'end'}>
                 <Hint />
                 <Stack
                     style={{
