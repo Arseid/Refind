@@ -1,10 +1,18 @@
+import Layout from 'components/layout/Layout';
+import { useState } from 'react';
 
 function App() {
-  return (
-    <div className="App">
+    const [answerValue, setAnswerValue] = useState('');
 
-    </div>
-  );
+    function onValidateAnswer(value) {
+        setAnswerValue(value);
+    }
+    return (
+        <div className="App">
+            <Layout onValidateAnswer={onValidateAnswer} />
+            {answerValue}
+        </div>
+    );
 }
 
 export default App;
