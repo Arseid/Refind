@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Bedroom from './scenes/Bedroom';
 import Street from './scenes/Steet';
 import Garage from './scenes/Garage';
@@ -70,7 +70,7 @@ const Game = ({ answerValue, levelItems  }) => {
             {foundLevelItems.includes("E.T., l'extra-terrestre")&&dark===true ? <span className='Game-ET'>.</span> : ''}
 
         </div>
-    )
-}
+    );
+};
 
-export default Game
+export default Game;
