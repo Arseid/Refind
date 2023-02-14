@@ -12,6 +12,11 @@
     height: fit-content;
 }
 
+.Game-ListFound {
+    display: flex;
+    list-style: none;
+}
+
 .Game-ItemFound {
     font-size: 1.5rem;
     margin: 1rem;
