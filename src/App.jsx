@@ -8,9 +8,17 @@ function App() {
     const [found, setFound] = useState(0);
     const [stage, setStage] = useState(1);
     const [victory, setVictory] = React.useState(false);
+    const [seconds, setSeconds] = useState(0);
     const levelItems = [];
     const [foundLevelItems, setFoundLevelItems] = React.useState([]);
     const password = '203';
+
+    React.useEffect(() => {
+        const interval = setInterval(() => {
+            setSeconds(seconds + 1);
+        }, 1000);
+        return () => clearInterval(interval);
+    }, [seconds]);
 
     function onValidateAnswer(e) {
         setAnswerValue(e.target.value);
@@ -57,10 +65,11 @@ function App() {
             setFound(0);
         }
         else {
-            alert('Bien joué, niveau terminé. Retenez bien le chiffre que vous venez de rentrer. Niveau suivant...');
+            alert('Bien joué, niveau terminé. Niveau suivant...');
             setStage(stage+1);
             setFoundLevelItems([]);
             setFound(0);
+            setSeconds(0);
         }
     }
 
