@@ -7,7 +7,7 @@ import logo from 'ressources/refind-logo.png';
 import { Box } from '@mui/material';
 import Progress from './Progress';
 
-const Layout = ({ children, answerValue, onValidateAnswer, found, toFind }) => {
+const Layout = ({ children, answerValue, onValidateAnswer, found, toFind, foundLevelItems, lvlUp }) => {
     return (
         <Stack
             spacing={2}
@@ -67,7 +67,7 @@ const Layout = ({ children, answerValue, onValidateAnswer, found, toFind }) => {
                         />
                     </div>
                 </Stack>
-                <Next />
+                <Next lvlUp={lvlUp} found={found} toFind={toFind}/>
             </Stack>
         </Stack>
     );

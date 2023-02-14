@@ -2,7 +2,14 @@ import { Button } from '@mui/material';
 import React from 'react';
 import PlayArrowOutlinedIcon from '@mui/icons-material/PlayArrowOutlined';
 
-const Next = () => {
+const Next = ({ lvlUp, found, toFind }) => {
+
+    const checkWin = () => {
+        if (found===toFind)
+            lvlUp();
+        else alert("Veuillez trouver tous les objets");
+    }
+
     return (
         <Button
             color="secondary"
@@ -13,6 +20,7 @@ const Next = () => {
                 minHeight: '4rem',
                 justifyContent: 'right',
             }}
+            onClick={() => {checkWin()}}
         >
             Next
             <PlayArrowOutlinedIcon />

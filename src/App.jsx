@@ -35,35 +35,36 @@ function App() {
             for (const key in refs.bedroom) {
                 levelItems.push(key);
             }
+            levelItems.push(2);
         }
         if (stage===2){
             for (const key in refs.garage) {
                 levelItems.push(key);
             }
+            levelItems.push(0);
         }
         if (stage===3){
             for (const key in refs.street) {
                 levelItems.push(key);
             }
+            levelItems.push(3);
         }
         //console.log(levelItems);
     }
     getData();
 
-    React.useEffect(() => {
-        if (found===levelItems.length){
-            if (stage>3) {
-                setFoundLevelItems([]);
-                setFound(0);
-            }
-            else {
-                alert('Bravo veuillez conserver ce chiffre: 2, place au niveau suivant');
-                setStage(stage+1);
-                setFoundLevelItems([]);
-                setFound(0);
-            }
+    const lvlUp = () => {
+        if (stage>3) {
+            setFoundLevelItems([]);
+            setFound(0);
         }
-    }, [found, levelItems.length, stage]);
+        else {
+            alert('Bien joué, niveau terminé. Retenez bien le chiffre que vous venez de rentrer. Niveau suivant...');
+            setStage(stage+1);
+            setFoundLevelItems([]);
+            setFound(0);
+        }
+    }
 
     return (
         <div className="App">
@@ -72,6 +73,7 @@ function App() {
                 onValidateAnswer={onValidateAnswer}
                 found={found}
                 toFind={levelItems.length}
+                lvlUp={lvlUp}
             >
                 <Game foundLevelItems={foundLevelItems} lvl={stage} victory={victory} />
             </Layout>
