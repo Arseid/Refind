@@ -5,28 +5,36 @@
         "Thor": "Frère de Loki.",
         "Clash of Clans": "Or, Élixir et Barbares.",
         "Pokemon": "Monstres de poche",
-        "Fairy Tail":"L'anime qui incarne Natsu",
-        "SAO" : "Anime jeu vidéo virtuel",
-        "Mario Kart" : "Course de voiture Nitendo",
-        "Black Clover" : "Un enfant sans pouvoir magique rêve de devenir magicien",
-        "Naruto" : "L'enfant qui avait un renard dans le ventre"
+        "Fairy Tail": "L'anime qui incarne Natsu",
+        "Sword Art Online" : "Anime jeu vidéo virtuel",
+        "Mario Kart": "Course de voiture Nitendo",
+        "Black Clover": "Un enfant sans pouvoir magique rêve de devenir magicien",
+        "Naruto": "L'enfant qui avait un renard dans le ventre"
     },
 
     "garage": {
         "Iron Man" : "J'ai une armure de très haute technologie",
         "Attack on Titan" : "Bataillon d'exploration",
-        "Harry Potter" : "J'ai une cicatrice sur le front",
         "Chainsaw Man" : "Démon tronçonneuse",
         "Game of Thrones" : "Le trône de fer",
-        "Assassin's Creed" : "",
+        "Assassin's Creed" : "Assassins des templiers",
         "Minecraft": "Creeper ? Aw man...",
         "Batman" : "Chauve-souris",
-        "Death Note" : "Démon"
-
+        "Death Note" : "Je prends une chips...",
+        "The Lord of the Rings" : "Les anneaux du pouvoir / Gandalf ",
+        "The Legend of Zelda" : "Link"
     },
 
     "street": {
         "Genshin Impact": "Le jeu RPG Gacha Openworld du moment",
-        "Mario": "Le jeu qui a fait naître la mascotte de Nintendo"
+        "Mario": "Le jeu qui a fait naître la mascotte de Nintendo",
+        "Spider-Man": "L'araignée la plus héroïque du monde",
+        "Harry Potter": "J' ai une cicatrice en forme d'éclair sur mon front",
+        "E.T": "Téléphone, Maison",
+        "Dragon Ball": "Kamehameha !!!!",
+        "My Hero Academia": "One for All",
+        "Mortal Kombat": "FATALITY !",
+        "Toy Story": "Vers l'infini et ...",
+        "The Mandalorian": "bébé je suis, pas le même nom du grand j'ai"
     }
 }

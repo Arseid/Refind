@@ -11,13 +11,53 @@ const Game = ({ foundLevelItems, lvl, victory }) => {
     const changeBrightness = () => setDark(!dark);
 
     return (
-        <div className='Game'>
-            <div className='Game-Background' onClick={() => {changeBrightness()}}>
+        <>
+            <div /*onClick={() => {changeBrightness()}}*/>
                 {lvl===1 ? <Bedroom darkened={dark}/> : ''}
                 {lvl===2 ? <Garage darkened={dark}/> : ''}
                 {lvl===3 ? <Street darkened={dark}/> : ''}
                 {lvl===4&&victory===true ? <Victory/> : ''}
             </div>
+
+            <div>
+                <ul className='Game-ListFound'>
+
+
+                    {foundLevelItems.includes("thor") ? <li className='Game-ItemFound'>Thor</li> : ''}
+                    {foundLevelItems.includes("star wars") ? <li className='Game-ItemFound'>Star Wars</li> : ''}
+                    {foundLevelItems.includes("one piece") ? <li className='Game-ItemFound'>One Piece</li> : ''}
+                    {foundLevelItems.includes("clash of clans") ? <li className='Game-ItemFound'>Clash of Clans</li> : ''}
+                    {foundLevelItems.includes("pokemon") ? <li className='Game-ItemFound'>Pokemon</li> : ''}
+                    {foundLevelItems.includes("fairy tail") ? <li className='Game-ItemFound'>Fairy Tail</li> : ''}
+                    {foundLevelItems.includes("sword art online") ? <li className='Game-ItemFound'>Sword Art Online</li> : ''}
+                    {foundLevelItems.includes("mario kart") ? <li className='Game-ItemFound'>Mario Kart</li> : ''}
+                    {foundLevelItems.includes("black clover") ? <li className='Game-ItemFound'>Black Clover</li> : ''}
+                    {foundLevelItems.includes("naruto") ? <li className='Game-ItemFound'>Naruto</li> : ''}
+
+                    {foundLevelItems.includes("iron man") ? <li className='Game-ItemFound'>Iron Man</li> : ''}
+                    {foundLevelItems.includes("attack on titan") ? <li className='Game-ItemFound'>Attack on Titan</li> : ''}
+                    {foundLevelItems.includes("the lord of the rings") ? <li className='Game-ItemFound'>The Lord of the Rings</li> : ''}
+                    {foundLevelItems.includes("the legend of zelda") ? <li className='Game-ItemFound'>The Legend of Zelda</li> : ''}
+                    {foundLevelItems.includes("chainsaw man") ? <li className='Game-ItemFound'>Chainsaw Man</li> : ''}
+                    {foundLevelItems.includes("game of thrones") ? <li className='Game-ItemFound'>Game of Thrones</li> : ''}
+                    {foundLevelItems.includes("assassin's creed") ? <li className='Game-ItemFound'>Assassin's Creed</li> : ''}
+                    {foundLevelItems.includes("minecraft") ? <li className='Game-ItemFound'>Minecraft</li> : ''}
+                    {foundLevelItems.includes("batman") ? <li className='Game-ItemFound'>Batman</li> : ''}
+                    {foundLevelItems.includes("death note") ? <li className='Game-ItemFound'>Death Note</li> : ''}
+
+                    {foundLevelItems.includes("mario") ? <li className='Game-ItemFound'>Mario</li> : ''}
+                    {foundLevelItems.includes("the mandalorian") ? <li className='Game-ItemFound'>The Mandalorian</li> : ''}
+                    {foundLevelItems.includes("toy story") ? <li className='Game-ItemFound'>Toy Story</li> : ''}
+                    {foundLevelItems.includes("harry potter") ? <li className='Game-ItemFound'>Harry Potter"</li> : ''}
+                    {foundLevelItems.includes("mortal kombat") ? <li className='Game-ItemFound'>Mortal Kombat</li> : ''}
+                    {foundLevelItems.includes("spider-man") ? <li className='Game-ItemFound'>Spider-Man</li> : ''}
+                    {foundLevelItems.includes("dragon ball") ? <li className='Game-ItemFound'>Dragon Ball</li> : ''}
+                    {foundLevelItems.includes("genshin impact") ? <li className='Game-ItemFound'>Genshin Impact</li> : ''}
+                    {foundLevelItems.includes("my hero academia") ? <li className='Game-ItemFound'>My Hero Academia</li> : ''}
+                    {foundLevelItems.includes("e.t") ? <li className='Game-ItemFound'>E.T., l'extra-terrestre</li> : ''}
+                </ul>
+            </div>
+
 
             {foundLevelItems.includes("Thor")&&dark===true ? <span className='Game-Thor'>.</span> : ''}
             {foundLevelItems.includes("Star Wars")&&dark===true ? <span className='Game-Star_Wars'>.</span> : ''}
@@ -52,7 +92,7 @@ const Game = ({ foundLevelItems, lvl, victory }) => {
             {foundLevelItems.includes("My Hero Academia")&&dark===true ? <span className='Game-My_Hero_Academia'>.</span> : ''}
             {foundLevelItems.includes("E.T., l'extra-terrestre")&&dark===true ? <span className='Game-ET'>.</span> : ''}
 
-        </div>
+        </>
     );
 };
 

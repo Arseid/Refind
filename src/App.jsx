@@ -11,9 +11,6 @@ function App() {
     const levelItems = [];
     const [foundLevelItems, setFoundLevelItems] = React.useState([]);
     const password = '203';
-    const levelItemsLowercase = [];
-
-    levelItems.forEach( element => levelItemsLowercase.add(element.toLowerCase()));
 
     function onValidateAnswer(e) {
         setAnswerValue(e.target.value);
@@ -25,10 +22,10 @@ function App() {
         }
         //mofification/ajout levelItemsLowercases
         else {
-            if (!foundLevelItems.includes(e.target.value) && levelItemsLowercase.includes(e.target.value.toLowerCase())) {
+            if (!foundLevelItems.includes(e.target.value) && levelItems.includes(e.target.value)) {
                 setFoundLevelItems([...foundLevelItems, e.target.value]);
                 e.target.value=null;
-                if (found<=levelItemsLowercase.length)setFound(found+1);
+                if (found<=foundLevelItems.length)setFound(found+1);
             }
         }
     }
@@ -37,37 +34,35 @@ function App() {
     const getData = () => {
         if (stage===1){
             for (const key in refs.bedroom) {
-                levelItems.push(key);
+                levelItems.push(key.toLowerCase());
             }
         }
         if (stage===2){
             for (const key in refs.garage) {
-                levelItems.push(key);
+                levelItems.push(key.toLowerCase());
             }
         }
         if (stage===3){
             for (const key in refs.street) {
-                levelItems.push(key);
+                levelItems.push(key.toLowerCase());
             }
         }
         //console.log(levelItems);
     }
     getData();
 
-    React.useEffect(() => {
-        if (found===levelItems.length){
-            if (stage>3) {
-                setFoundLevelItems([]);
-                setFound(0);
-            }
-            else {
-                alert('Bravo veuillez conserver ce chiffre: 2, place au niveau suivant');
-                setStage(stage+1);
-                setFoundLevelItems([]);
-                setFound(0);
-            }
+    const lvlUp = () => {
+        if (stage>3) {
+            setFoundLevelItems([]);
+            setFound(0);
         }
-    }, [found, levelItems.length, stage]);
+        else {
+            alert('Bien joué, niveau terminé. Retenez bien le chiffre que vous venez de rentrer. Niveau suivant...');
+            setStage(stage+1);
+            setFoundLevelItems([]);
+            setFound(0);
+        }
+    }
 
     return (
         <div className="App">
@@ -76,6 +71,7 @@ function App() {
                 onValidateAnswer={onValidateAnswer}
                 found={found}
                 toFind={levelItems.length}
+                lvlUp={lvlUp}
             >
                 <Game foundLevelItems={foundLevelItems} lvl={stage} victory={victory} />
             </Layout>
