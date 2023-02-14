@@ -13,7 +13,7 @@ function App() {
     let levelItems = [];
     let levelHints = [];
     const [foundLevelItems, setFoundLevelItems] = React.useState([]);
-    const password = '203';
+    const password = '8203';
 
     React.useEffect(() => {
         const keyCombination = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
