@@ -9,22 +9,6 @@ const Game = ({ foundLevelItems, lvl, victory }) => {
     const [dark, setDark] = React.useState(false);
 
     const changeBrightness = () => setDark(!dark);
-    /*
-    const listItemFound = document.querySelector("listFound")
-
-    const listFoundLevelItems = (foundLevelItems) => {
-        if (foundLevelItems.length>0){
-            for (let item in foundLevelItems) {
-                const itemFound = document.createElement('li');
-                itemFound.innerText=item;
-                listItemFound.appendChild(itemFound);
-            }
-        }
-    }
-
-
-    listFoundLevelItems(foundLevelItems);
-    */
 
     return (
         <>
