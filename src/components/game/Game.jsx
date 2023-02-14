@@ -20,7 +20,7 @@ const Game = ({ foundLevelItems, lvl, victory }) => {
             </div>
 
             <div>
-                <ul className="Game-ListFound">
+                <ul className="Game-ListFound" >
                     {foundLevelItems.includes('thor') ? (
                         <li className="Game-ItemFound">Thor</li>
                     ) : (
