@@ -19,7 +19,7 @@ const Layout = ({
 }) => {
     return (
         <Stack
-            spacing={2}
+            spacing={1}
             justifyContent={'top'}
             sx={{
                 position: 'absolute',
@@ -65,12 +65,11 @@ const Layout = ({
                 {children}
             </Stack>
 
-            <Stack spacing={2} direction="row" alignItems={'top'}>
+            <Stack spacing={2} direction="row" alignItems={'end'}>
                 <Hint hints={hints} />
                 <Stack
                     style={{
                         width: '100%',
-                        marginTop: '1rem',
                         display: 'flex',
                         alignItems: 'center',
                     }}

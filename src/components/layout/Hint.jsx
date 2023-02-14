@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { styled, Box } from '@mui/system';
 import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
-import { Button, Modal, Paper, Stack } from '@mui/material';
+import { Button, Modal, Stack } from '@mui/material';
 
 const BackdropUnstyled = React.forwardRef((props, ref) => {
     const { open, className, ...other } = props;
@@ -77,11 +77,24 @@ export default function Hint({ hints }) {
                         {hints.map((element, key) => {
                             return (
                                 <li key={key} style={{ padding: '1rem' }}>
-                                    {element}{' '}
+                                    {element}
                                 </li>
                             );
                         })}
                     </ol>
+                    <Stack
+                        direction={'row'}
+                        justifyContent={'end'}
+                        sx={{
+                            p: '1rem',
+                            pt: '0rem',
+                            fontWeight: 'bold',
+                            color: 'transparent',
+                            '&:hover': { color: '#0004' },
+                        }}
+                    >
+                        © konami
+                    </Stack>
                 </Box>
             </Modal>
         </>

@@ -36,7 +36,6 @@ function App() {
             }
         }
     }
-    //console.log(answerValue);
 
     const getData = () => {
         if (stage === 1) {
@@ -57,7 +56,6 @@ function App() {
             }
             levelHints = Object.values(refs.street);
         }
-        console.log(levelItems, levelHints);
     };
     getData();
 
