@@ -17,7 +17,7 @@ const Next = ({ lvlUp, found, toFind }) => {
             sx={{
                 borderRadius: '3rem 0rem 0rem 0rem',
                 minWidth: '8rem',
-                minHeight: '4rem',
+                height: '4rem',
                 justifyContent: 'right',
             }}
             onClick={() => {checkWin()}}

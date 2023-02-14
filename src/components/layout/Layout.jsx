@@ -7,10 +7,19 @@ import logo from 'ressources/refind-logo.png';
 import { Box } from '@mui/material';
 import Progress from './Progress';
 
-const Layout = ({ children, answerValue, onValidateAnswer, found, toFind, foundLevelItems, lvlUp }) => {
+const Layout = ({
+    children,
+    answerValue,
+    onValidateAnswer,
+    found,
+    toFind,
+    hints,
+    foundLevelItems,
+    lvlUp,
+}) => {
     return (
         <Stack
-            spacing={2}
+            spacing={1}
             justifyContent={'top'}
             sx={{
                 position: 'absolute',
@@ -36,6 +45,10 @@ const Layout = ({ children, answerValue, onValidateAnswer, found, toFind, foundL
                     alt="logo-pokedex"
                     width="20rem"
                 />
+                <span>
+                    Trouvez les <b style={{ color: '#1976d2' }}>10 références cachées</b> et le{' '}
+                    <b style={{ color: '#9C27B0' }}>chiffre mystère</b> pour chaque zone !
+                </span>
                 <Progress found={found} toFind={toFind} />
             </Stack>
 
@@ -45,17 +58,18 @@ const Layout = ({ children, answerValue, onValidateAnswer, found, toFind, foundL
                     minWidth: '1rem',
                     justifyContent: 'center',
                     alignItems: 'center',
+                    borderStyle: 'solid',
+                    overflow: 'scroll',
                 }}
             >
                 {children}
             </Stack>
 
-            <Stack spacing={2} direction="row" alignItems={'top'}>
-                <Hint />
+            <Stack spacing={2} direction="row" alignItems={'end'}>
+                <Hint hints={hints} />
                 <Stack
                     style={{
                         width: '100%',
-                        marginTop: '1rem',
                         display: 'flex',
                         alignItems: 'center',
                     }}
@@ -67,7 +81,7 @@ const Layout = ({ children, answerValue, onValidateAnswer, found, toFind, foundL
                         />
                     </div>
                 </Stack>
-                <Next lvlUp={lvlUp} found={found} toFind={toFind}/>
+                <Next lvlUp={lvlUp} found={found} toFind={toFind} />
             </Stack>
         </Stack>
     );

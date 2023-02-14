@@ -9,7 +9,8 @@ function App() {
     const [stage, setStage] = useState(1);
     const [victory, setVictory] = React.useState(false);
     const [seconds, setSeconds] = useState(0);
-    const levelItems = [];
+    let levelItems = [];
+    let levelHints = [];
     const [foundLevelItems, setFoundLevelItems] = React.useState([]);
     const password = '203';
 
@@ -22,56 +23,56 @@ function App() {
 
     function onValidateAnswer(e) {
         setAnswerValue(e.target.value);
-        if (stage>3) {
-            if (e.target.value===password) {
+        if (stage > 3) {
+            if (e.target.value === password) {
                 alert('Bien joue, le jeu est termine');
                 setVictory(true);
             }
-        }
-        //mofification/ajout levelItemsLowercases
-        else {
+        } else {
             if (!foundLevelItems.includes(e.target.value) && levelItems.includes(e.target.value)) {
                 setFoundLevelItems([...foundLevelItems, e.target.value]);
-                e.target.value=null;
-                if (found<=foundLevelItems.length)setFound(found+1);
+                e.target.value = null;
+                if (found <= levelItems.length) setFound(found + 1);
             }
         }
     }
-    //console.log(answerValue);
 
     const getData = () => {
-        if (stage===1){
+        if (stage === 1) {
             for (const key in refs.bedroom) {
                 levelItems.push(key.toLowerCase());
             }
+            levelHints = Object.values(refs.bedroom);
         }
-        if (stage===2){
+        if (stage === 2) {
             for (const key in refs.garage) {
                 levelItems.push(key.toLowerCase());
             }
+            levelHints = Object.values(refs.garage);
         }
-        if (stage===3){
+        if (stage === 3) {
             for (const key in refs.street) {
                 levelItems.push(key.toLowerCase());
             }
+            levelHints = Object.values(refs.street);
         }
-        //console.log(levelItems);
-    }
+    };
     getData();
 
     const lvlUp = () => {
-        if (stage>3) {
+        if (stage > 3) {
             setFoundLevelItems([]);
             setFound(0);
-        }
-        else {
-            alert('Bien joué, niveau terminé. Niveau suivant...');
-            setStage(stage+1);
+        } else {
+            alert(
+                'Bien joué, niveau terminé. Retenez bien le chiffre que vous venez de rentrer. Niveau suivant...'
+            );
+            setStage(stage + 1);
             setFoundLevelItems([]);
             setFound(0);
             setSeconds(0);
         }
-    }
+    };
 
     return (
         <div className="App">
@@ -81,6 +82,7 @@ function App() {
                 found={found}
                 toFind={levelItems.length}
                 lvlUp={lvlUp}
+                hints={levelHints}
             >
                 <Game foundLevelItems={foundLevelItems} lvl={stage} victory={victory} />
             </Layout>

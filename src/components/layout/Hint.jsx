@@ -2,9 +2,8 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { styled, Box } from '@mui/system';
-import ModalUnstyled from '@mui/base/ModalUnstyled';
 import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
-import { Button } from '@mui/material';
+import { Button, Modal, Stack } from '@mui/material';
 
 const BackdropUnstyled = React.forwardRef((props, ref) => {
     const { open, className, ...other } = props;
@@ -15,18 +14,6 @@ BackdropUnstyled.propTypes = {
     className: PropTypes.string.isRequired,
     open: PropTypes.bool,
 };
-
-const Modal = styled(ModalUnstyled)`
-    position: fixed;
-    z-index: 1300;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`;
 
 const Backdrop = styled(BackdropUnstyled)`
     z-index: -1;
@@ -39,14 +26,7 @@ const Backdrop = styled(BackdropUnstyled)`
     -webkit-tap-highlight-color: transparent;
 `;
 
-const style = (theme) => ({
-    width: 400,
-    bgcolor: theme.palette.mode === 'dark' ? '#0A1929' : 'white',
-    border: '2px solid currentColor',
-    padding: '16px 32px 24px 32px',
-});
-
-export default function Hint() {
+export default function Hint({ hints }) {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -61,7 +41,7 @@ export default function Hint() {
                 sx={{
                     borderRadius: '0rem 3rem 0rem 0rem',
                     minWidth: '8rem',
-                    minHeight: '4rem',
+                    height: '4rem',
                     justifyContent: 'left',
                 }}
             >
@@ -69,15 +49,52 @@ export default function Hint() {
                 Hint
             </Button>
             <Modal
-                aria-labelledby="unstyled-modal-title"
-                aria-describedby="unstyled-modal-description"
                 open={open}
                 onClose={handleClose}
                 slots={{ backdrop: Backdrop }}
+                style={{
+                    position: 'fixed',
+                    zIndex: 1300,
+                    right: 0,
+                    bottom: 0,
+                    top: 0,
+                    left: 0,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                }}
             >
-                <Box sx={style}>
-                    <h2 id="unstyled-modal-title">Text in a modal</h2>
-                    <p id="unstyled-modal-description">Aliquid amet deserunt earum!</p>
+                <Box
+                    sx={{
+                        bgcolor: 'white',
+                        color: 'black',
+                        borderRadius: '1rem',
+                        borderStyle: 'solid',
+                        borderColor: 'white',
+                    }}
+                >
+                    <ol>
+                        {hints.map((element, key) => {
+                            return (
+                                <li key={key} style={{ padding: '1rem' }}>
+                                    {element}
+                                </li>
+                            );
+                        })}
+                    </ol>
+                    <Stack
+                        direction={'row'}
+                        justifyContent={'end'}
+                        sx={{
+                            p: '1rem',
+                            pt: '0rem',
+                            fontWeight: 'bold',
+                            color: 'transparent',
+                            '&:hover': { color: '#0004' },
+                        }}
+                    >
+                        © konami
+                    </Stack>
                 </Box>
             </Modal>
         </>

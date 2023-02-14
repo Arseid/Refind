@@ -2,7 +2,7 @@ import * as React from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 
-export default function Progress({ found = 1, toFind = 10 }) {
+export default function Progress({ found, toFind }) {
     return (
         <Box sx={{ position: 'relative', display: 'inline-flex' }}>
             <CircularProgress variant="determinate" size={80} value={(found / toFind) * 100} />
