@@ -36,16 +36,19 @@ function App() {
             for (const key in refs.bedroom) {
                 levelItems.push(key.toLowerCase());
             }
+            levelItems.push(2);
         }
         if (stage===2){
             for (const key in refs.garage) {
                 levelItems.push(key.toLowerCase());
             }
+            levelItems.push(0);
         }
         if (stage===3){
             for (const key in refs.street) {
                 levelItems.push(key.toLowerCase());
             }
+            levelItems.push(3);
         }
         //console.log(levelItems);
     }
@@ -57,7 +60,7 @@ function App() {
             setFound(0);
         }
         else {
-            alert('Bien joué, niveau terminé. Retenez bien le chiffre que vous venez de rentrer. Niveau suivant...');
+            alert('Bien joué, niveau terminé. Niveau suivant...');
             setStage(stage+1);
             setFoundLevelItems([]);
             setFound(0);
