@@ -13,6 +13,7 @@ const AnswerInput = ({ answerValue, onValidateAnswer }) => {
                 placeholder="Avez-vous trouvé quelque chose...?"
                 style={{
                     backgroundColor: 'white',
+
                     borderRadius: '2rem',
                     padding: '0rem 1rem 0rem',
                     borderStyle: 'none',

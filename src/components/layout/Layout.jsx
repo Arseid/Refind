@@ -27,6 +27,7 @@ const Layout = ({
                 bottom: '0',
                 left: '0',
                 right: '0',
+                height: '100vh',
             }}
         >
             <Stack
@@ -59,14 +60,13 @@ const Layout = ({
                     justifyContent: 'center',
                     alignItems: 'center',
                     borderStyle: 'solid',
-                    overflow: 'scroll',
                 }}
             >
                 {children}
             </Stack>
 
             <Stack spacing={2} direction="row" alignItems={'end'}>
-                <Hint hints={hints} seconds={seconds}/>
+                <Hint hints={hints} seconds={seconds} />
                 <Stack
                     style={{
                         width: '100%',

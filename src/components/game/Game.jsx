@@ -6,19 +6,33 @@ import Victory from './scenes/Victory';
 import 'styles/game.css';
 
 const Game = ({ foundLevelItems, lvl, victory }) => {
-    const [dark, setDark] = React.useState(false);
+    const [dark, setDark] = React.useState(true);
 
     const changeBrightness = () => setDark(!dark);
 
     return (
         <>
-            <div /*onClick={() => {changeBrightness()}}*/>
+            {lvl !== 4 ? (
+                <p
+                    onClick={() => {
+                        changeBrightness();
+                    }}
+                >
+                    Cliquez l'image pour zoomer
+                </p>
+            ) : (
+                ''
+            )}
+            <div
+                onClick={() => {
+                    changeBrightness();
+                }}
+            >
                 {lvl === 1 ? <Bedroom darkened={dark} /> : ''}
                 {lvl === 2 ? <Garage darkened={dark} /> : ''}
                 {lvl === 3 ? <Street darkened={dark} /> : ''}
-                {lvl === 4 && victory === true ? <Victory /> : ''}
+                {lvl === 4 ? victory ? <Victory /> : 'Alors ? Quel est le nombre mystère ?' : ''}
             </div>
-
             <div>
                 <ul className="Game-ListFound" >
                     {foundLevelItems.includes('thor') ? (
@@ -175,7 +189,6 @@ const Game = ({ foundLevelItems, lvl, victory }) => {
                     )}
                 </ul>
             </div>
-
             {foundLevelItems.includes('Thor') && dark === true ? (
                 <span className="Game-Thor">.</span>
             ) : (
@@ -226,7 +239,6 @@ const Game = ({ foundLevelItems, lvl, victory }) => {
             ) : (
                 ''
             )}
-
             {foundLevelItems.includes('Iron Man') && dark === true ? (
                 <span className="Game-Iron_Man">.</span>
             ) : (
@@ -277,7 +289,6 @@ const Game = ({ foundLevelItems, lvl, victory }) => {
             ) : (
                 ''
             )}
-
             {foundLevelItems.includes('Mario') && dark === true ? (
                 <span className="Game-Mario">.</span>
             ) : (

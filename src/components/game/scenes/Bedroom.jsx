@@ -1,22 +1,22 @@
 import React from 'react';
 
-const Bedroom = ({ darkened = false }) => {
+const Bedroom = ({ darkened }) => {
     return (
-        <div style={{ width: 'fit-content', height: 'fit-content' }}>
+        <>
             {darkened === false ? (
                 <img
-                    style={{ width: '100%', height: '100%' }}
+                    style={{ width: '100%', height: 'auto' }}
                     src={require('ressources/bedroom.png')}
                     alt=""
                 />
             ) : (
                 <img
-                    style={{ width: '100%', height: '100%' }}
-                    src={require('ressources/bedroom_darkened.png')}
+                    style={{ width: 'auto', height: '30rem' }}
+                    src={require('ressources/bedroom.png')}
                     alt=""
                 />
             )}
-        </div>
+        </>
     );
 };
 
