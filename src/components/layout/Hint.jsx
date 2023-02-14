@@ -26,7 +26,7 @@ const Backdrop = styled(BackdropUnstyled)`
     -webkit-tap-highlight-color: transparent;
 `;
 
-export default function Hint() {
+export default function Hint({ hints }) {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -64,38 +64,25 @@ export default function Hint() {
                     justifyContent: 'center',
                 }}
             >
-                <Stack spacing={2}>
-                    <Box sx={{ bgcolor: 'white', color: 'black', borderRadius: '2rem', p: '1rem' }}>
-                        Text in a modal Aliquid amet deserunt earum!
-                    </Box>
-                    <Box sx={{ bgcolor: 'white', color: 'black', borderRadius: '2rem', p: '1rem' }}>
-                        Text in a modal Aliquid amet deserunt earum!
-                    </Box>
-                    <Box sx={{ bgcolor: 'white', color: 'black', borderRadius: '2rem', p: '1rem' }}>
-                        Text in a modal Aliquid amet deserunt earum!
-                    </Box>
-                    <Box sx={{ bgcolor: 'white', color: 'black', borderRadius: '2rem', p: '1rem' }}>
-                        Text in a modal Aliquid amet deserunt earum!
-                    </Box>
-                    <Box sx={{ bgcolor: 'white', color: 'black', borderRadius: '2rem', p: '1rem' }}>
-                        Text in a modal Aliquid amet deserunt earum!
-                    </Box>
-                    <Box sx={{ bgcolor: 'white', color: 'black', borderRadius: '2rem', p: '1rem' }}>
-                        Text in a modal Aliquid amet deserunt earum!
-                    </Box>
-                    <Box sx={{ bgcolor: 'white', color: 'black', borderRadius: '2rem', p: '1rem' }}>
-                        Text in a modal Aliquid amet deserunt earum!
-                    </Box>
-                    <Box sx={{ bgcolor: 'white', color: 'black', borderRadius: '2rem', p: '1rem' }}>
-                        Text in a modal Aliquid amet deserunt earum!
-                    </Box>
-                    <Box sx={{ bgcolor: 'white', color: 'black', borderRadius: '2rem', p: '1rem' }}>
-                        Text in a modal Aliquid amet deserunt earum!
-                    </Box>
-                    <Box sx={{ bgcolor: 'white', color: 'black', borderRadius: '2rem', p: '1rem' }}>
-                        Text in a modal Aliquid amet deserunt earum!
-                    </Box>
-                </Stack>
+                <Box
+                    sx={{
+                        bgcolor: 'white',
+                        color: 'black',
+                        borderRadius: '1rem',
+                        borderStyle: 'solid',
+                        borderColor: 'white',
+                    }}
+                >
+                    <ol>
+                        {hints.map((element, key) => {
+                            return (
+                                <li key={key} style={{ padding: '1rem' }}>
+                                    {element}{' '}
+                                </li>
+                            );
+                        })}
+                    </ol>
+                </Box>
             </Modal>
         </>
     );

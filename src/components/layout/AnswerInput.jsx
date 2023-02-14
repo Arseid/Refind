@@ -1,6 +1,5 @@
-import { Button, InputBase } from '@mui/material';
+import { InputBase } from '@mui/material';
 import React from 'react';
-import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
 import { Stack } from '@mui/system';
 
 const AnswerInput = ({ answerValue, onValidateAnswer }) => {

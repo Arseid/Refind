@@ -9,7 +9,8 @@ function App() {
     const [stage, setStage] = useState(1);
     const [victory, setVictory] = React.useState(false);
     const [seconds, setSeconds] = useState(0);
-    const levelItems = [];
+    let levelItems = [];
+    let levelHints = [];
     const [foundLevelItems, setFoundLevelItems] = React.useState([]);
     const password = '203';
 
@@ -27,13 +28,11 @@ function App() {
                 alert('Bien joue, le jeu est termine');
                 setVictory(true);
             }
-        }
-        //mofification/ajout levelItemsLowercases
-        else {
+        } else {
             if (!foundLevelItems.includes(e.target.value) && levelItems.includes(e.target.value)) {
                 setFoundLevelItems([...foundLevelItems, e.target.value]);
                 e.target.value = null;
-                if (found <= foundLevelItems.length) setFound(found + 1);
+                if (found <= levelItems.length) setFound(found + 1);
             }
         }
     }
@@ -41,21 +40,18 @@ function App() {
 
     const getData = () => {
         if (stage === 1) {
-            for (const key in refs.bedroom) {
-                levelItems.push(key.toLowerCase());
-            }
+            levelItems = Object.keys(refs.bedroom);
+            levelHints = Object.values(refs.bedroom);
         }
         if (stage === 2) {
-            for (const key in refs.garage) {
-                levelItems.push(key.toLowerCase());
-            }
+            levelItems = Object.keys(refs.garage);
+            levelHints = Object.values(refs.bedroom);
         }
         if (stage === 3) {
-            for (const key in refs.street) {
-                levelItems.push(key.toLowerCase());
-            }
+            levelItems = Object.keys(refs.street);
+            levelHints = Object.values(refs.bedroom);
         }
-        //console.log(levelItems);
+        console.log(levelItems, levelHints);
     };
     getData();
 
@@ -82,6 +78,7 @@ function App() {
                 found={found}
                 toFind={levelItems.length}
                 lvlUp={lvlUp}
+                hints={levelHints}
             >
                 <Game foundLevelItems={foundLevelItems} lvl={stage} victory={victory} />
             </Layout>
