@@ -11,6 +11,9 @@ function App() {
     const levelItems = [];
     const [foundLevelItems, setFoundLevelItems] = React.useState([]);
     const password = '203';
+    const levelItemsLowercase = [];
+
+    levelItems.forEach( element => levelItemsLowercase.add(element.toLowerCase()));
 
     function onValidateAnswer(e) {
         setAnswerValue(e.target.value);
@@ -20,11 +23,12 @@ function App() {
                 setVictory(true);
             }
         }
+        //mofification/ajout levelItemsLowercases
         else {
-            if (!foundLevelItems.includes(e.target.value) && levelItems.includes(e.target.value)) {
+            if (!foundLevelItems.includes(e.target.value) && levelItemsLowercase.includes(e.target.value.toLowerCase())) {
                 setFoundLevelItems([...foundLevelItems, e.target.value]);
                 e.target.value=null;
-                if (found<=levelItems.length)setFound(found+1);
+                if (found<=levelItemsLowercase.length)setFound(found+1);
             }
         }
     }
