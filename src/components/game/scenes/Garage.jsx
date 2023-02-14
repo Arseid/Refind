@@ -6,10 +6,10 @@ const Garage = ({ darkened = false }) => {
             {darkened === false
                 ?
                 <img style={{ width: "100rem", height: "50rem" }}
-                     src={require('ressources/garage.jpg')} alt='' />
+                     src={require('ressources/garage.png')} alt='' />
                 :
                 <img style={{ width: "100rem", height: "50rem" }}
-                     src={require('ressources/garage_darkened.jpg')} alt='' />
+                     src={require('ressources/garage_darkened.png')} alt='' />
             }
         </div>
     )

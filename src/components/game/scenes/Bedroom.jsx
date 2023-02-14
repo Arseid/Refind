@@ -6,10 +6,10 @@ const Bedroom = ({ darkened = false }) => {
             {darkened === false
                 ?
                 <img style={{width: "100rem", height: "50rem"}}
-                     src={require('ressources/bedroom.jpg')} alt=''/>
+                     src={require('ressources/bedroom.png')} alt=''/>
                 :
                 <img style={{width: "100rem", height: "50rem"}}
-                     src={require('ressources/bedroom_darkened.jpg')} alt=''/>
+                     src={require('ressources/bedroom_darkened.png')} alt=''/>
             }
         </div>
     )
