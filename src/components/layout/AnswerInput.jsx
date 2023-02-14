@@ -8,7 +8,12 @@ const AnswerInput = ({ answerValue, onValidateAnswer }) => {
             <InputBase
                 id="answerInput"
                 onChange={(e) => {
-                    onValidateAnswer(e);
+                    onValidateAnswer(e, false);
+                }}
+                onKeyPress={(e) => {
+                    if (e.key === 'Enter') {
+                        onValidateAnswer(e, true);
+                    }
                 }}
                 placeholder="Avez-vous trouvé quelque chose...?"
                 style={{

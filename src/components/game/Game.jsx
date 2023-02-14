@@ -31,10 +31,10 @@ const Game = ({ foundLevelItems, lvl, victory }) => {
                 {lvl === 1 ? <Bedroom darkened={dark} /> : ''}
                 {lvl === 2 ? <Garage darkened={dark} /> : ''}
                 {lvl === 3 ? <Street darkened={dark} /> : ''}
-                {lvl === 4 ? victory ? <Victory /> : 'Alors ? Quel est le nombre mystère ?' : ''}
+                {lvl === 4 ? victory ? <Victory /> : 'ENTER CODE' : ''}
             </div>
             <div>
-                <ul className="Game-ListFound" >
+                <ul className="Game-ListFound">
                     {foundLevelItems.includes('thor') ? (
                         <li className="Game-ItemFound">Thor</li>
                     ) : (

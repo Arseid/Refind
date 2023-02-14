@@ -9,6 +9,7 @@ function App() {
     const [stage, setStage] = useState(1);
     const [victory, setVictory] = React.useState(false);
     const [seconds, setSeconds] = useState(0);
+    const [chance, setChance] = useState(1);
     let levelItems = [];
     let levelHints = [];
     const [foundLevelItems, setFoundLevelItems] = React.useState([]);
@@ -22,14 +23,14 @@ function App() {
             if (event.keyCode === keyCombination[keyIndex]) {
                 keyIndex++;
                 if (keyIndex === keyCombination.length) {
-                    if (stage===1){
-                        alert('List: '+levelItems+'---Number: 2');
+                    if (stage === 1) {
+                        alert('List: ' + levelItems + '---Number: 2');
                     }
-                    if (stage===2){
-                        alert('List: '+levelItems+'---Number: 0');
+                    if (stage === 2) {
+                        alert('List: ' + levelItems + '---Number: 0');
                     }
-                    if (stage===3){
-                        alert('List: '+levelItems+'---Number: 3');
+                    if (stage === 3) {
+                        alert('List: ' + levelItems + '---Number: 3');
                     }
                     keyIndex = 0;
                 }
@@ -41,18 +42,27 @@ function App() {
 
         const interval = setInterval(() => {
             setSeconds(seconds + 3);
-            console.log(seconds);
         }, 3000);
-        return () => {clearInterval(interval); document.removeEventListener('keydown', handleKeyDown);
+        return () => {
+            clearInterval(interval);
+            document.removeEventListener('keydown', handleKeyDown);
         };
     }, [seconds, stage]);
 
-    function onValidateAnswer(e) {
+    function onValidateAnswer(e, enter) {
         setAnswerValue(e.target.value);
-        if (stage > 3) {
+        if (stage > 3 && enter) {
             if (e.target.value === password) {
                 alert('Bien joue, le jeu est termine');
                 setVictory(true);
+            } else {
+                if (chance > 0) {
+                    alert("Vous avez entré un mauvais code. Vous n'avez plus qu'une chance.");
+                    setChance(chance - 1);
+                } else {
+                    alert('Vous avez échoué. Vous devez recommencer la partie.');
+                    window.location.reload();
+                }
             }
         } else {
             if (!foundLevelItems.includes(e.target.value) && levelItems.includes(e.target.value)) {
@@ -90,9 +100,7 @@ function App() {
             setFoundLevelItems([]);
             setFound(0);
         } else {
-            alert(
-                'Bien joué, niveau terminé. Niveau suivant...'
-            );
+            alert('Bien joué, niveau terminé. Niveau suivant...');
             setStage(stage + 1);
             setFoundLevelItems([]);
             setFound(0);

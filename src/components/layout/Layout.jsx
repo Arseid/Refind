@@ -47,8 +47,8 @@ const Layout = ({
                     width="20rem"
                 />
                 <span>
-                    Trouvez les <b style={{ color: '#1976d2' }}>10 références cachées</b> et le{' '}
-                    <b style={{ color: '#9C27B0' }}>chiffre mystère</b> pour chaque zone !
+                    Trouvez les <b style={{ color: '#1976d2' }}>10 références cachées</b> dans
+                    chaque zone !
                 </span>
                 <Progress found={found} toFind={toFind} />
             </Stack>
@@ -59,7 +59,6 @@ const Layout = ({
                     minWidth: '1rem',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    borderStyle: 'solid',
                 }}
             >
                 {children}
