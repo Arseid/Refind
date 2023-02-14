@@ -27,8 +27,8 @@ const Game = ({ foundLevelItems, lvl, victory }) => {
     */
 
     return (
-        <div className='Game'>
-            <div className='Game-Background' /*onClick={() => {changeBrightness()}}*/>
+        <>
+            <div /*onClick={() => {changeBrightness()}}*/>
                 {lvl===1 ? <Bedroom darkened={dark}/> : ''}
                 {lvl===2 ? <Garage darkened={dark}/> : ''}
                 {lvl===3 ? <Street darkened={dark}/> : ''}
@@ -68,7 +68,7 @@ const Game = ({ foundLevelItems, lvl, victory }) => {
                     {foundLevelItems.includes("Dragon Ball") ? <li className='Game-ItemFound'>Dragon Ball</li> : ''}
                     {foundLevelItems.includes("Genshin Impact") ? <li className='Game-ItemFound'>Genshin Impact</li> : ''}
                     {foundLevelItems.includes("My Hero Academia") ? <li className='Game-ItemFound'>My Hero Academia</li> : ''}
-                    {foundLevelItems.includes("E.T., l'extra-terrestre") ? <li className='Game-ItemFound'>E.T., l'extra-terrestre</li> : ''}
+                    {foundLevelItems.includes("E.T") ? <li className='Game-ItemFound'>E.T., l'extra-terrestre</li> : ''}
                 </ul>
             </div>
 
@@ -106,7 +106,7 @@ const Game = ({ foundLevelItems, lvl, victory }) => {
             {foundLevelItems.includes("My Hero Academia")&&dark===true ? <span className='Game-My_Hero_Academia'>.</span> : ''}
             {foundLevelItems.includes("E.T., l'extra-terrestre")&&dark===true ? <span className='Game-ET'>.</span> : ''}
 
-        </div>
+        </>
     );
 };
 
