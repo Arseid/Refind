@@ -11,9 +11,6 @@ function App() {
     const levelItems = [];
     const [foundLevelItems, setFoundLevelItems] = React.useState([]);
     const password = '203';
-    const levelItemsLowercase = [];
-
-    levelItems.forEach( element => levelItemsLowercase.add(element.toLowerCase()));
 
     function onValidateAnswer(e) {
         setAnswerValue(e.target.value);
@@ -25,10 +22,10 @@ function App() {
         }
         //mofification/ajout levelItemsLowercases
         else {
-            if (!foundLevelItems.includes(e.target.value) && levelItemsLowercase.includes(e.target.value.toLowerCase())) {
+            if (!foundLevelItems.includes(e.target.value) && levelItems.includes(e.target.value)) {
                 setFoundLevelItems([...foundLevelItems, e.target.value]);
                 e.target.value=null;
-                if (found<=levelItemsLowercase.length)setFound(found+1);
+                if (found<=foundLevelItems.length)setFound(found+1);
             }
         }
     }
@@ -37,21 +34,18 @@ function App() {
     const getData = () => {
         if (stage===1){
             for (const key in refs.bedroom) {
-                levelItems.push(key);
+                levelItems.push(key.toLowerCase());
             }
-            levelItems.push(2);
         }
         if (stage===2){
             for (const key in refs.garage) {
-                levelItems.push(key);
+                levelItems.push(key.toLowerCase());
             }
-            levelItems.push(0);
         }
         if (stage===3){
             for (const key in refs.street) {
-                levelItems.push(key);
+                levelItems.push(key.toLowerCase());
             }
-            levelItems.push(3);
         }
         //console.log(levelItems);
     }
