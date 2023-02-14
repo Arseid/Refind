@@ -40,16 +40,22 @@ function App() {
 
     const getData = () => {
         if (stage === 1) {
-            levelItems = Object.keys(refs.bedroom);
+            for (const key in refs.bedroom) {
+                levelItems.push(key.toLowerCase());
+            }
             levelHints = Object.values(refs.bedroom);
         }
         if (stage === 2) {
-            levelItems = Object.keys(refs.garage);
-            levelHints = Object.values(refs.bedroom);
+            for (const key in refs.garage) {
+                levelItems.push(key.toLowerCase());
+            }
+            levelHints = Object.values(refs.garage);
         }
         if (stage === 3) {
-            levelItems = Object.keys(refs.street);
-            levelHints = Object.values(refs.bedroom);
+            for (const key in refs.street) {
+                levelItems.push(key.toLowerCase());
+            }
+            levelHints = Object.values(refs.street);
         }
         console.log(levelItems, levelHints);
     };

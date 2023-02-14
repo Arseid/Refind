@@ -6,13 +6,13 @@ const Street = ({ darkened = false }) => {
             {darkened === false ? (
                 <img
                     style={{ width: '100%', height: '100%' }}
-                    src={require('ressources/street.jpg')}
+                    src={require('ressources/street.png')}
                     alt=""
                 />
             ) : (
                 <img
                     style={{ width: '100%', height: '100%' }}
-                    src={require('ressources/street_darkened.jpg')}
+                    src={require('ressources/street_darkened.png')}
                     alt=""
                 />
             )}

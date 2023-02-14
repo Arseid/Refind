@@ -45,9 +45,10 @@ const Layout = ({
                     alt="logo-pokedex"
                     width="20rem"
                 />
-                <p>
-                    Trouvez les références cachées et devinez de quelles oeuvres elles proviennent !
-                </p>
+                <span>
+                    Trouvez les <b style={{ color: '#1976d2' }}>10 références cachées</b> et le{' '}
+                    <b style={{ color: '#9C27B0' }}>chiffre mystère</b> pour chaque zone !
+                </span>
                 <Progress found={found} toFind={toFind} />
             </Stack>
 
