@@ -91,7 +91,7 @@ function App() {
             setFound(0);
         } else {
             alert(
-                'Bien joué, niveau terminé. Retenez bien le chiffre que vous venez de rentrer. Niveau suivant...'
+                'Bien joué, niveau terminé. Niveau suivant...'
             );
             setStage(stage + 1);
             setFoundLevelItems([]);
@@ -109,6 +109,7 @@ function App() {
                 toFind={levelItems.length}
                 lvlUp={lvlUp}
                 hints={levelHints}
+                seconds={seconds}
             >
                 <Game foundLevelItems={foundLevelItems} lvl={stage} victory={victory} />
             </Layout>

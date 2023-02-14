@@ -26,9 +26,15 @@ const Backdrop = styled(BackdropUnstyled)`
     -webkit-tap-highlight-color: transparent;
 `;
 
-export default function Hint({ hints }) {
+export default function Hint({ hints, seconds }) {
     const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
+    const handleOpen = () => {
+        if (seconds>180) setOpen(true);
+        else {
+            let timeRemaining=180-seconds;
+            alert('Veuillez attendre encore '+timeRemaining+' secondes');
+        }
+    }
     const handleClose = () => setOpen(false);
 
     return (

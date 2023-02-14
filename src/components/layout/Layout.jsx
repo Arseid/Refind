@@ -14,7 +14,7 @@ const Layout = ({
     found,
     toFind,
     hints,
-    foundLevelItems,
+    seconds,
     lvlUp,
 }) => {
     return (
@@ -66,7 +66,7 @@ const Layout = ({
             </Stack>
 
             <Stack spacing={2} direction="row" alignItems={'end'}>
-                <Hint hints={hints} />
+                <Hint hints={hints} seconds={seconds}/>
                 <Stack
                     style={{
                         width: '100%',
