@@ -15,37 +15,11 @@ function App() {
     const password = '203';
 
     React.useEffect(() => {
-        const keyCombination = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-        let keyIndex = 0;
-
-        const handleKeyDown = (event) => {
-            if (event.keyCode === keyCombination[keyIndex]) {
-                keyIndex++;
-                if (keyIndex === keyCombination.length) {
-                    if (stage===1){
-                        alert('List: '+levelItems+'---Number: 2');
-                    }
-                    if (stage===2){
-                        alert('List: '+levelItems+'---Number: 0');
-                    }
-                    if (stage===3){
-                        alert('List: '+levelItems+'---Number: 3');
-                    }
-                    keyIndex = 0;
-                }
-            } else {
-                keyIndex = 0;
-            }
-        };
-        document.addEventListener('keydown', handleKeyDown);
-
         const interval = setInterval(() => {
-            setSeconds(seconds + 3);
-            console.log(seconds);
-        }, 3000);
-        return () => {clearInterval(interval); document.removeEventListener('keydown', handleKeyDown);
-        };
-    }, [seconds, levelItems, stage]);
+            setSeconds(seconds + 1);
+        }, 1000);
+        return () => clearInterval(interval);
+    }, [seconds]);
 
     function onValidateAnswer(e) {
         setAnswerValue(e.target.value);
